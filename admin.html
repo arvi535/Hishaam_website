@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex"> <!-- ask search engines not to list this page -->
+  <title>Add a property | Admin</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main class="wrap">
+  <section>
+    <h2>Add a property</h2>
+    <p class="sub">Fill in the form, copy the line, and paste it into properties-data.js on GitHub. This page does not publish anything by itself.</p>
+    <div class="two">
+      <form class="form" id="adminForm">
+        <input type="text" id="title" placeholder="Property name (e.g. Sea View Villa)" required>
+        <input type="text" id="titleAr" placeholder="Arabic name (optional)">
+        <div class="row">
+          <input type="text" id="price" placeholder="Price (e.g. $350/mo)" required>
+          <select id="type"><option value="rent">For Rent</option><option value="sale">For Sale</option><option value="airbnb">Airbnb</option></select>
+        </div>
+        <input type="text" id="image" placeholder="Photo file name (e.g. villa1.jpg), optional">
+        <button class="btn" type="submit">Make the line</button>
+        <label for="out" class="small">Copy this line:</label>
+        <textarea id="out" readonly placeholder="Your line appears here"></textarea>
+        <button class="btn light" type="button" id="copy" style="border:1px solid #d9cfc6">Copy</button>
+      </form>
+      <div>
+        <h3>Preview</h3>
+        <div class="card" id="preview" style="width:260px; margin-top:14px; background-image:linear-gradient(160deg,#e3b98a,#7b5a46)">
+          <span class="price" id="pPrice">€0</span><span class="badge" id="pType">For Rent</span><span class="place" id="pTitle">📍 Name</span>
+        </div>
+        <ol class="small" style="margin:24px 0 0 18px; display:grid; gap:8px">
+          <li>Upload the photo to the <b>images</b> folder in your GitHub repo.</li>
+          <li>Open <b>properties-data.js</b> on GitHub and click the pencil icon.</li>
+          <li>Paste the line above the closing <b>];</b> and commit.</li>
+          <li>Wait about a minute, then refresh the site.</li>
+        </ol>
+      </div>
+    </div>
+  </section>
+</main>
+<script src="properties-data.js"></script>
+<script>
+  // Next free id = highest existing id + 1
+  const nextId = Math.max(...properties.map(p => p.id)) + 1;
+  const names = { rent: "For Rent", sale: "For Sale", airbnb: "Airbnb" };
+  const $ = id => document.getElementById(id);
+
+  $("adminForm").addEventListener("submit", e => {
+    e.preventDefault();
+    const file = $("image").value.trim();
+    const bg = file ? `url('images/${file}')` : "linear-gradient(160deg,#e3b98a,#7b5a46)";
+    // JSON.stringify adds the quotes and escapes special characters for us
+    $("out").value = `  { id: ${nextId}, title: ${JSON.stringify($("title").value)}, ${$("titleAr").value ? "ar: " + JSON.stringify($("titleAr").value) + ", " : ""}price: ${JSON.stringify($("price").value)}, type: "${$("type").value}", bg: ${JSON.stringify(bg)} },`;
+    $("preview").style.backgroundImage = bg;
+    $("pPrice").textContent = $("price").value;
+    $("pType").textContent = names[$("type").value];
+    $("pTitle").textContent = "📍 " + $("title").value;
+  });
+  $("copy").addEventListener("click", () => { $("out").select(); navigator.clipboard.writeText($("out").value); });
+</script>
+</body>
+</html>

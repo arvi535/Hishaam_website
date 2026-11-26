@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Home | Your Brand</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<!-- NAVBAR: the same on every page. Move the class="active" to the current page -->
+<header class="nav">
+  <a class="logo" href="index.html">⌂ Your Brand</a>
+  <button class="menu-btn" aria-label="Open menu">☰</button>
+  <div class="menu">
+    <nav class="links">
+      <a href="index.html" class="active">Home</a>
+      <a href="contact.html#about">About</a>
+      <a href="properties.html" >Properties</a>
+      <a href="services.html" >Services</a>
+      <a href="list-property.html" >List your properties</a>
+      <a href="contact.html" >Contact</a>
+    </nav>
+    <div class="auth"><button class="lang-btn" id="langBtn" type="button">English</button><a href="#">Log in</a><a class="btn" href="#">Sign up</a></div>
+  </div>
+</header>
+<main class="wrap">
+  <!-- HERO -->
+  <section style="padding-top:8px">
+    <div class="hero">
+      <h1>Find Your<br>Perfect Property</h1>
+      <p>Homes for rent and sale in Damascus, plus full management for owners and Airbnb hosts.</p>
+      <a class="btn" href="properties.html">Browse properties</a>
+      <!-- SEARCH BAR (layout only for now) -->
+      <form class="search" action="properties.html">
+        <input type="text" placeholder="Location (e.g. Al-Mezzeh)">
+        <select><option>Any type</option><option>For Rent</option><option>For Sale</option><option>Airbnb</option></select>
+        <select><option>Any price</option><option>Under $500</option><option>$500 - $1,000</option><option>Over $1,000</option></select>
+        <button class="btn" type="submit">Search</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- SERVICES PREVIEW -->
+  <section>
+    <h2>What we do</h2>
+    <p class="sub">Everything an owner or a renter needs, in one place.</p>
+    <div class="boxes">
+      <div class="box"><span class="ico">🏠</span><h3>Property management</h3><p>We find tenants, collect rent and look after your property.</p><a class="btn" href="services.html">Learn more</a></div>
+      <div class="box"><span class="ico">🛎️</span><h3>Airbnb management</h3><p>Listings, guests, cleaning and pricing handled for you.</p><a class="btn" href="services.html">Learn more</a></div>
+      <div class="box"><span class="ico">🛠️</span><h3>Renovations</h3><p>Refresh your property to rent or sell for more.</p><a class="btn" href="services.html">Learn more</a></div>
+    </div>
+  </section>
+
+  <!-- FEATURED GALLERY: cards are drawn by script.js -->
+  <section>
+    <h2>Featured properties</h2>
+    <p class="sub">A few of our latest listings.</p>
+    <div class="gallery" id="featured"></div>
+  </section>
+
+  <!-- OWNER CTA -->
+  <section>
+    <div class="cta">
+      <div><h2>Own a property?</h2><p>List it with us for rent, sale or Airbnb, and we handle the rest.</p></div>
+      <a class="btn light" href="list-property.html">List your property with us</a>
+    </div>
+  </section>
+</main>
+<footer>© 2026 Your Brand · Damascus, Syria</footer>
+<script src="properties-data.js"></script>
+<script src="lang.js"></script>
+<script src="script.js"></script>
+</body>
+</html>

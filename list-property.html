@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>List your properties | Your Brand</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<!-- NAVBAR: the same on every page. Move the class="active" to the current page -->
+<header class="nav">
+  <a class="logo" href="index.html">⌂ Your Brand</a>
+  <button class="menu-btn" aria-label="Open menu">☰</button>
+  <div class="menu">
+    <nav class="links">
+      <a href="index.html" >Home</a>
+      <a href="contact.html#about">About</a>
+      <a href="properties.html" >Properties</a>
+      <a href="services.html" >Services</a>
+      <a href="list-property.html" class="active">List your properties</a>
+      <a href="contact.html" >Contact</a>
+    </nav>
+    <div class="auth"><button class="lang-btn" id="langBtn" type="button">English</button><a href="#">Log in</a><a class="btn" href="#">Sign up</a></div>
+  </div>
+</header>
+<main class="wrap">
+  <section style="padding-top:8px">
+    <div class="split">
+      <!-- LEFT: dark panel that explains the process -->
+      <div class="panel">
+        <h1 style="font-size:clamp(2rem,4vw,2.8rem)">List your properties</h1>
+        <p>Rent it, sell it, or let us run it as an Airbnb. Send us the basics and we take care of the rest.</p>
+        <ol class="steps">
+          <li><div><strong>Send us the details</strong><p>It takes about two minutes.</p></div></li>
+          <li><div><strong>We call you</strong><p>We agree on the price, photos and how we work together.</p></div></li>
+          <li><div><strong>We list and manage it</strong><p>Your property goes on our site and we find the right tenant, buyer or guests.</p></div></li>
+        </ol>
+        <p class="small">No photos needed now. We will ask for them when we call.</p>
+      </div>
+
+      <!-- RIGHT: the form. Replace YOUR_FORM_ID with the ID from Formspree (see README steps) -->
+      <form class="form listform" data-endpoint="https://formspree.io/f/YOUR_FORM_ID">
+        <input type="hidden" name="_subject" value="New property listing request">
+        <input type="text" name="_gotcha" class="hp" tabindex="-1" autocomplete="off"> <!-- spam trap, leave empty -->
+
+        <fieldset>
+          <legend>About you</legend>
+          <div class="row"><input type="text" name="name" placeholder="Full name" required><input type="tel" name="phone" placeholder="Phone number" required></div>
+          <div class="row"><input type="email" name="email" placeholder="Email" required>
+            <select name="best_contact"><option>Best way to reach you</option><option>Phone call</option><option>WhatsApp</option><option>Email</option></select></div>
+        </fieldset>
+
+        <fieldset>
+          <legend>About the property</legend>
+          <input type="text" name="location" placeholder="Address or area (e.g. Al-Mezzeh, Damascus)" required>
+          <div class="row">
+            <select name="property_type"><option>Apartment</option><option>House</option><option>Villa</option><option>Commercial</option><option>Land</option></select>
+            <input type="number" name="size_m2" placeholder="Size (m²)" min="0">
+          </div>
+          <div class="row"><input type="number" name="bedrooms" placeholder="Bedrooms" min="0"><input type="text" name="expected_price" placeholder="Expected price or rent ($)"></div>
+        </fieldset>
+
+        <fieldset>
+          <legend>What do you need?</legend>
+          <div class="pills">
+            <label><input type="checkbox" name="services" value="Rent"><span>Rent it out</span></label>
+            <label><input type="checkbox" name="services" value="Sell"><span>Sell it</span></label>
+            <label><input type="checkbox" name="services" value="Airbnb management"><span>Airbnb management</span></label>
+            <label><input type="checkbox" name="services" value="Property management"><span>Property management</span></label>
+            <label><input type="checkbox" name="services" value="Renovation"><span>Renovation</span></label>
+          </div>
+          <textarea name="message" placeholder="Anything else we should know?"></textarea>
+        </fieldset>
+
+        <button class="btn" type="submit">Send my property</button>
+        <p class="note"></p>
+      </form>
+    </div>
+  </section>
+</main>
+<footer>© 2026 Your Brand · Damascus, Syria</footer>
+<script src="properties-data.js"></script>
+<script src="lang.js"></script>
+<script src="script.js"></script>
+</body>
+</html>

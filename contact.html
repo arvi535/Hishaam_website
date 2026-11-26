@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Contact | Your Brand</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<!-- NAVBAR: the same on every page. Move the class="active" to the current page -->
+<header class="nav">
+  <a class="logo" href="index.html">⌂ Your Brand</a>
+  <button class="menu-btn" aria-label="Open menu">☰</button>
+  <div class="menu">
+    <nav class="links">
+      <a href="index.html" >Home</a>
+      <a href="contact.html#about">About</a>
+      <a href="properties.html" >Properties</a>
+      <a href="services.html" >Services</a>
+      <a href="list-property.html" >List your properties</a>
+      <a href="contact.html" class="active">Contact</a>
+    </nav>
+    <div class="auth"><button class="lang-btn" id="langBtn" type="button">English</button><a href="#">Log in</a><a class="btn" href="#">Sign up</a></div>
+  </div>
+</header>
+<main class="wrap">
+  <section id="about">
+    <h2>About us</h2>
+    <p class="sub">We are a Damascus-based team helping people rent, buy and manage property. Replace this text with your real story.</p>
+  </section>
+  <section style="padding-top:0">
+    <h2>Contact</h2>
+    <p class="sub">Send a message or write to us on WhatsApp.</p>
+    <div class="two">
+      <form class="form" data-endpoint="https://formspree.io/f/YOUR_CONTACT_FORM_ID">
+        <input type="text" placeholder="Your name" required>
+        <input type="email" placeholder="Email" required>
+        <textarea placeholder="How can we help?"></textarea>
+        <button class="btn" type="submit">Send message</button>
+        <p class="note"></p>
+      </form>
+      <div class="info">
+        <!-- Profile card: the photo is only 240px wide, so it is shown small (112px) to stay sharp -->
+        <div class="person">
+          <img src="Hisham_Profile.webp" alt="" width="112" height="112">
+          <div><strong>Hisham Sammouneh</strong><br><span>Business Lead Director / Owner</span></div>
+        </div>
+        <p>📞 <a dir="ltr" href="tel:+963933331994">+963 933 331 994</a></p>
+        <p>✉️ <a dir="ltr" href="mailto:sammouneh.hisham@gmail.com">sammouneh.hisham@gmail.com</a></p>
+        <p>📍 Damascus, Syria</p>
+        <a class="btn" href="https://wa.me/963933331994">Chat on WhatsApp</a>
+        <div class="map">Map goes here</div>
+      </div>
+    </div>
+  </section>
+</main>
+<footer>© 2026 Your Brand · Damascus, Syria</footer>
+<script src="properties-data.js"></script>
+<script src="lang.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
